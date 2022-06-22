@@ -5,6 +5,8 @@ oficial:
 
 https://tailwindcss.com/docs/installation
 
+Para deixar uma atualização automatica dentro do arquivo tailwind.config,
+execute o comando:
 
 Toda a estilização proposta pelo Tailwind dentro do próprio
 arquivo HTMl através das classes. 
@@ -433,6 +435,95 @@ https://www.youtube.com/watch?v=nsMvmjGhG48&list=PLcoYAcR89n-r1m-tMfV4qndrRWpT_r
 ========================== Aula 12 ========================
 
 
+O tailwind possui uma função para modo noturno dentro do seu
+arquivo config.
 
+Existem, duas formas para realizar o procedimento:
 
+1
+Dentro do objeto module, crie a propriedade com o nome "darkMode",
+e digite a opção "class" para ser aplicada com breakpoint.
+Ex:
+
+module.exports = {
+  content: ["src/index.html"],
+  darkMode: 'class',
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+Dentro do arquivo HTML, coloque a classe "dark" dentro do elemento
+HTML. Ex:
+
+<html class="dark">
+</html>
+
+para alterar as estilizações basta digitar a classe tailwind, sussedendo
+o breakpoint "dark:"
+Ex:
+
+<p class="dark:text-red-400">
+
+Agora basta criar uma código JS junto a um botão radios, para ativar
+ou desativar a classe "Dark" do elemento HTML.
+
+2
+Dentro do arquivo tailwind.config, no objeto module, adcione a propriedade
+"darkMode:", e como valor coloque a propriedade "media".
+Ex:
+
+module.exports = {
+  content: ["src/index.html"],
+  darkMode: 'media',
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+Dessa forma, a página se encarregará de checar se o nevegador está em modo noturno
+ou diurno, e agirá de acordo com a mesma.
    
+
+
+========================== Aula 12 ========================
+
+
+Criando classes personalidas.
+
+Para isso, dentro do seu arquivo css/scss/sass, crie as seguintes diretrizes:
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Após isso, é ncessário rodar um comando no terminal para compilar o seu arquivo 
+css/scss/sass para o arquivo css do tailwind:
+
+npx tailwindcss -i style.css -o tailwind.css --watch
+
+
+Depois, crie a classe normalmente no css:
+
+.class {
+    color:blue;
+}
+
+Você também pode adcionar essa classe a uma das diretivas informadas no css, usando
+o "Layer". Ex:
+
+@layer utilities {
+    .class {
+        color:blue
+    }
+}
+
+Também é possível utilizar as classes utilitárias dentro da própria classe css. Ex:
+
+@layer utilities {
+    .class {
+       @apply text-blue-400
+    }
+}

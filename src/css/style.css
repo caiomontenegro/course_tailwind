@@ -1,5 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  .class {
+    @apply text-blue-600;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
