@@ -488,7 +488,7 @@ ou diurno, e agirá de acordo com a mesma.
    
 
 
-========================== Aula 12 ========================
+========================== Aula 13 ========================
 
 
 Criando classes personalidas.
@@ -527,3 +527,5 @@ Também é possível utilizar as classes utilitárias dentro da própria classe 
        @apply text-blue-400
     }
 }
+
+
